@@ -1,0 +1,36 @@
+#header{
+	text-align: center;
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	border-radius: 25px
+	
+}
+#lightgreen{
+	background-color: lightgreen;
+	border-radius: 25px;
+	font-size: 1.5em;
+}
+#lightred{
+	background-color: pink ;
+	border-radius: 25px;
+	font-size: 1.5em;
+}
+#leftTable{
+	margin-top: 75px;
+}
+.leftAmount{
+	text-align:
+}
+#summary{
+	background-color: #AFEEEE;
+	text-align: center;
+	font-size: 1.8em;
+	border-radius: 10px
+}
+#lastTable{
+	background-color: 	#AFEEEE ;
+	border-radius: 10px
+}
+#lefttext{
+	font-size: 1.25em
+
+}

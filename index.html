@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="budgetTracker">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/index.css">
+</head>
+<body ng-controller="myCtrl">
+ <div class="container">
+   	<div id="header" class="well">
+   	    <h1>Budget Tracker</h1>
+   	</div>    
+          <div class="row">
+              <div class="col-md-6">
+              	   <div class="well" id="lightgreen">
+                     Income Entries
+              	   </div>
+              	     <form>
+                         <div class="form-group">
+                            <label  for="disabledTextInput">Description</label>
+                            <input ng-model="newdescription" type="text" id="disabledTextInput" class="form-control" placeholder="Description">
+                         </div>
+                                 <div class="form-group">
+                                    <label for="amountIncome">Amount</label>
+                                    <input ng-model="newamount"  type="number" name="" id="amountIncome" class="form-control">
+    							               </div>
+    								  	
+    											        <button ng-click="income()" type="submit" class="btn btn-primary col-md-12">Submit</button>
+    				         </form>
+
+    										<table class="table" id="leftTable">
+    											    <tr>
+    											        <thead>
+    												         <th>Description</th>
+    												         <th style="text-align:right">Amount</th>
+    											        </thead>
+    											    </tr>
+    											    <tr ng-repeat="dollar in myincome">
+    												       
+                                   <td id="lefttext">{{dollar.description}}</td>
+    												       <td id="lefttext" style="text-align:right" >{{dollar.amount | currency: $ }}</td>
+    											    </tr>
+    										</table>
+					             
+              </div>
+                    <div class="col-md-6">
+                                <div class="well" id="lightred">
+                     				Expense Entries
+              	   				      </div>
+              	     			<form>
+                         			<div class="form-group">
+                            			 <label for="disabledTextInput">Description</label>
+                           				 <input ng-model="newDescriptionTwo" type="text" id="disabledTextInput" class="form-control" placeholder="Description">
+                        			</div>
+                                			 <div class="form-group">
+                                   				 <label for="amountSpend">Amount</label>
+                                   				 <input ng-model="newAmountTwo" type="number" id="amountSpend" class="form-control">								
+   											               </div>
+    								  			 	
+    														<button type="submit" ng-click="expense()" class="btn btn-primary col-md-12">Submit</button>
+    							        </form>
+    							         
+    										<table class="table" id="leftTable">
+        											<tr>
+        											     <thead>
+        												        <th>Description</th>
+        												        <th style="text-align:right">Amount</th>
+        											    </thead>
+        											</tr>
+        											<tr ng-repeat="dollar in myexpense">
+        												     
+                                     <td id="lefttext">{{dollar.description}}</td>
+        												     <td id="lefttext" style="text-align:right">{{dollar.amount | currency: $ }}</td>
+        											</tr>
+    										</table>
+             	 	  </div>
+            </div>
+
+                       <div class="row">
+                            <div id="lastTable" class="col-md-6 col-md-offset-3">
+                                  <div  id="summary">Summary                                  
+                                  </div>
+										<table >
+											<tr>
+    												<div class="col-md-6" style="text-align:center"><h5>Total Income</h5>
+        													<div class="well">
+        														{{myTotalIncome | currency: $ }}
+        													</div>
+    												</div>
+    												<div class="col-md-6" style="text-align:center"><h5>Total Expense</h5>
+          													<div class="well">
+          														{{myTotalExpenses | currency: $ }}
+          													</div>
+    												</div>
+											</tr>
+									         <tr>
+      												<div class="col-md-6 col-md-offset-3" style="text-align:center"><h5>Left After Spending</h5>
+      													<div class="well" ng-model="amountleft">
+      													    {{amountLeft | currency: $ }}
+      													</div>
+      												</div>	
+											     </tr>
+										</table>                                  		
+                           </div>
+                       </div>
+ </div>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/app/index.js"></script>
+</body>
+</html>
